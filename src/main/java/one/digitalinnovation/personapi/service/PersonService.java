@@ -18,7 +18,12 @@ public class PersonService {
     }
 
     public MessageResponseDTO createPerson(PersonDTO personDTO){
-        //Person  = Person.builder().build()
+        Person personToSave = Person.builder()
+                .firstName(personDTO.getFirstName())
+                .lastName(personDTO.getLastName())
+                .birthDate(personDTO.getBirthDate())
+                .phones(personDTO.getPhones())
+                .build();
 
         Person savedPerson = personRepository.save(personDTO);
         return MessageResponseDTO
